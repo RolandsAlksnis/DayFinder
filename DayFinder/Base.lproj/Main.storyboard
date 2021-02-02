@@ -140,7 +140,7 @@
                         <barButtonItem key="leftBarButtonItem" image="info.circle.fill" catalog="system" id="mC2-ey-rY1">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="nt2-Wy-Bcw" kind="show" id="VCv-8C-iB3"/>
+                                <segue destination="nt2-Wy-Bcw" kind="show" identifier="dayFinder" id="VCv-8C-iB3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="moon.circle.fill" catalog="system" id="JzJ-79-ZlV">
@@ -162,26 +162,50 @@
             </objects>
             <point key="canvasLocation" x="1031.2" y="84.107946026986511"/>
         </scene>
-        <!--View Controller-->
+        <!--App Info View Controller-->
         <scene sceneID="8Pw-ol-58s">
             <objects>
-                <viewController id="nt2-Wy-Bcw" sceneMemberID="viewController">
+                <viewController id="nt2-Wy-Bcw" customClass="AppInfoViewController" customModule="DayFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5w0-1J-3dy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="App Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUQ-xc-JW3">
+                                <rect key="frame" x="61" y="286" width="253" height="73"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="App Desc." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXc-PK-4N1">
+                                <rect key="frame" x="61" y="540" width="253" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MGb-dU-urn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CUQ-xc-JW3" firstAttribute="centerY" secondItem="5w0-1J-3dy" secondAttribute="centerY" id="Oat-ht-qrD"/>
+                            <constraint firstItem="CUQ-xc-JW3" firstAttribute="centerX" secondItem="5w0-1J-3dy" secondAttribute="centerX" id="ZkT-FZ-1CM"/>
+                            <constraint firstItem="gXc-PK-4N1" firstAttribute="centerY" secondItem="5w0-1J-3dy" secondAttribute="centerY" id="jrT-M2-voR"/>
+                            <constraint firstItem="gXc-PK-4N1" firstAttribute="centerX" secondItem="5w0-1J-3dy" secondAttribute="centerX" id="tvx-Z9-ZrV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eH0-1r-GHU"/>
+                    <connections>
+                        <outlet property="appDescLabel" destination="gXc-PK-4N1" id="55C-8p-d4y"/>
+                        <outlet property="appInfoLabel" destination="CUQ-xc-JW3" id="Eyy-2I-hG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTf-MM-h6o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="917"/>
+            <point key="canvasLocation" x="1029.5999999999999" y="916.1919040479761"/>
         </scene>
-        <!--View Controller-->
+        <!--Appearence View Controller-->
         <scene sceneID="4jG-ff-3od">
             <objects>
-                <viewController id="BId-fO-AbL" sceneMemberID="viewController">
+                <viewController id="BId-fO-AbL" customClass="AppearenceViewController" customModule="DayFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vdu-nv-t1O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,17 +227,37 @@
                                         <rect key="frame" x="0.0" y="93" width="225" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.68890744156252581" blue="0.66366724659715659" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Open Settings"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="openSettingsButtonTapped:" destination="BId-fO-AbL" eventType="touchUpInside" id="UC2-Ap-EAj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyS-dj-Ic6">
+                                <rect key="frame" x="302" y="56" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" image="multiply.square" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="BId-fO-AbL" eventType="touchUpInside" id="vhb-7M-pNQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mww-Qt-89B"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6PG-dF-mya" firstAttribute="centerY" secondItem="vdu-nv-t1O" secondAttribute="centerY" id="3cg-41-A3T"/>
                             <constraint firstItem="6PG-dF-mya" firstAttribute="centerX" secondItem="vdu-nv-t1O" secondAttribute="centerX" id="YEC-BO-SYQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textLabel" destination="0Qs-bR-VC0" id="9mt-kn-Mh6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7DN-s5-Isb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,6 +292,7 @@
     <resources>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="moon.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="multiply.square" catalog="system" width="128" height="114"/>
         <image name="night" width="658" height="1432"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,6 +302,9 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
